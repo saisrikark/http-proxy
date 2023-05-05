@@ -1,7 +1,8 @@
-DIR := "bin/"
+DIR := bin/
 TARGET := http-proxy
+FULL_PATH := $(DIR)$(TARGET)
 
-.PHONY: all build create_directory clean
+.PHONY: all build create_directory clean run
 
 all: create_directory build clean
 
@@ -18,3 +19,6 @@ create_directory:
 clean:
 	@cargo clean
 	@rm -f $(TARGET)
+
+run:
+	@$(shell) ./$(FULL_PATH)
