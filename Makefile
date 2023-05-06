@@ -4,7 +4,7 @@ FULL_PATH := $(DIR)$(TARGET)
 
 .PHONY: all build create_directory clean run
 
-all: create_directory build clean
+all: create_directory clean build 
 
 build:
 	@cargo build --release
