@@ -1,24 +1,12 @@
-DIR := bin/
-TARGET := http-proxy
-FULL_PATH := $(DIR)$(TARGET)
+.PHONY: all build clean run
 
-.PHONY: all build create_directory clean run
-
-all: create_directory clean build 
+all: clean build 
 
 build:
-	@cargo build --release
-	@cp target/release/$(TARGET) bin/$(TARGET)
-
-print:
-	@echo $(DIR)
-
-create_directory:
-	@mkdir -p $(DIR)
+	@cargo build
 
 clean:
 	@cargo clean
-	@rm -f $(TARGET)
 
 run:
-	@$(shell) ./$(FULL_PATH)
+	@cargo run
